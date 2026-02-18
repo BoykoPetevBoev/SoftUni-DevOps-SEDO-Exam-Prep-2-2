@@ -5,6 +5,7 @@ pipeline{
             when {
                 anyOf {
                     branch 'main'
+                    branch 'origin/main'
                 }
             }
             steps{
@@ -15,6 +16,7 @@ pipeline{
             when {
                 anyOf {
                     branch 'main'
+                    branch 'origin/main'
                 }
             }
             steps{
@@ -25,6 +27,7 @@ pipeline{
             when {
                 anyOf {
                     branch 'main'
+                    branch 'origin/main'
                 }
             }
             steps{
