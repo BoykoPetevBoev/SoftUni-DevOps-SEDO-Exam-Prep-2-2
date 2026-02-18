@@ -9,21 +9,21 @@ pipeline{
                 bat "dotnet restore"
             }
         }
-    }
-    stage("Build the project"){
-        when {
-            branch 'main'
+        stage("Build the project"){
+            when {
+                branch 'main'
+            }
+            steps{
+                bat "dotnet build --no-restore"
+            }
         }
-        steps{
-            bat "dotnet build --no-restore"
-        }
-    }
-    stage("Run the tests"){
-        when {
-            branch 'main'
-        }
-        steps{
-            bat "dotnet test --no-build --verbosity normal"
+        stage("Run the tests"){
+            when {
+                branch 'main'
+            }
+            steps{
+                bat "dotnet test --no-build --verbosity normal"
+            }
         }
     }
 }
