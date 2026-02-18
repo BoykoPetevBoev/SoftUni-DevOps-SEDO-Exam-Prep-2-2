@@ -3,7 +3,9 @@ pipeline{
     stages{
         stage("Restore dependencies"){
             when {
-                branch 'main'
+                anyOf {
+                    branch 'main'
+                }
             }
             steps{
                 bat "dotnet restore"
@@ -11,7 +13,9 @@ pipeline{
         }
         stage("Build the project"){
             when {
-                branch 'main'
+                anyOf {
+                    branch 'main'
+                }
             }
             steps{
                 bat "dotnet build --no-restore"
@@ -19,7 +23,9 @@ pipeline{
         }
         stage("Run the tests"){
             when {
-                branch 'main'
+                anyOf {
+                    branch 'main'
+                }
             }
             steps{
                 bat "dotnet test --no-build --verbosity normal"
