@@ -3,9 +3,8 @@ pipeline{
     stages{
         stage("Restore dependencies"){
             when {
-                anyOf {
-                    branch 'main'
-                    branch 'origin/main'
+                expression {
+                    env.GIT_BRANCH == 'origin/main'
                 }
             }
             steps{
@@ -14,9 +13,8 @@ pipeline{
         }
         stage("Build the project"){
             when {
-                anyOf {
-                    branch 'main'
-                    branch 'origin/main'
+                expression {
+                    env.GIT_BRANCH == 'origin/main'
                 }
             }
             steps{
@@ -25,9 +23,8 @@ pipeline{
         }
         stage("Run the tests"){
             when {
-                anyOf {
-                    branch 'main'
-                    branch 'origin/main'
+                expression {
+                    env.GIT_BRANCH == 'origin/main'
                 }
             }
             steps{
